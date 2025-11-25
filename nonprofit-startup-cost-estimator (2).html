@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEF Nonprofit Startup Cost Estimator</title>
+<!--
+═══════════════════════════════════════════════════════════════════════
+  IEF NONPROFIT STARTUP COST ESTIMATOR
+  
+  Copyright © 2025 Alayna Marie Weimer. All Rights Reserved.
+  
+  PROPRIETARY AND CONFIDENTIAL
+  
+  CREATOR & COPYRIGHT HOLDER: Alayna Marie Weimer (individual)
+  BUSINESS OPERATOR: IEF Fractional Services (operates under license)
+  PERSONAL BRAND: Discover Your Success with Alayna Marie
+  
+  ✗ UNAUTHORIZED USE PROHIBITED
+  ✗ UNAUTHORIZED COPYING PROHIBITED
+  ✗ UNAUTHORIZED DISTRIBUTION PROHIBITED
+  ✗ UNAUTHORIZED MODIFICATION PROHIBITED
+  
+  This tool is available by paid license only.
+  Use outside of authorized licensed access is strictly prohibited.
+  
+  INTELLECTUAL PROPERTY OWNERSHIP:
+  This work is the sole and exclusive property of Alayna Marie Weimer.
+  IEF Fractional Services operates this tool under revocable license from
+  Alayna Marie Weimer. All intellectual property rights remain exclusively
+  with Alayna Marie Weimer.
+  
+  FOR LICENSING INQUIRIES:
+  Contact: Alayna Marie Weimer
+  Email: alayna@ignitepositivechanges.com
+  
+  Unauthorized access, use, copying, or distribution of this tool 
+  may result in legal action.
+═══════════════════════════════════════════════════════════════════════
+-->
+    <style>
+        :root {
+            --primary: #a8d8f2;
+            --primary-dark: #8ac4e8;
+            --accent: #d6b1dc;
+            --accent-hover: #c9a0d0;
+            --success: #2d8a5f;
+            --warning: #d4a944;
+            --bg-gradient-start: #a8d8f2;
+            --bg-gradient-end: #d6b1dc;
+            --bg-white: #ffffff;
+            --text-dark: #000000;
+            --text-medium: #2c3e50;
+            --text-light: #525252;
+            --border: #e0e6ed;
+            --shadow-sm: 0 1px 3px rgba(168, 216, 242, 0.15);
+            --shadow-md: 0 4px 12px rgba(168, 216, 242, 0.2);
+            --shadow-lg: 0 8px 30px rgba(168, 216, 242, 0.25);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            color: var(--text-medium);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px;
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 45%;
+        }
+
+        .powered-by {
+            font-size: 0.9em;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 38px);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 17px;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .toolkit-badge {
+            font-size: 0.9em;
+            color: var(--text-dark);
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        /* Benefits Banner */
+        .benefits-banner {
+            background: linear-gradient(180deg, #ffffff 0%, #d6b1dc 30%);
+            border: 2px solid var(--primary);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .benefits-banner h2 {
+            color: var(--text-medium);
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .benefits-banner p {
+            color: var(--text-medium);
+            font-weight: 500;
+            margin: 8px 0;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .progress-percent {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e8e4df;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 10px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        /* Main Card */
+        .calculator-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        /* Section Tabs */
+        .section-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .section-tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 16px 12px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .section-tab:hover {
+            color: var(--text-medium);
+            background: rgba(255,255,255,0.5);
+        }
+
+        .section-tab.active {
+            color: var(--text-dark);
+            background: var(--bg-white);
+        }
+
+        .section-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .section-tab.completed::before {
+            content: '✓';
+            display: inline-block;
+            margin-right: 6px;
+            color: var(--success);
+        }
+
+        /* Section Content */
+        .section-content {
+            padding: 32px;
+        }
+
+        .section-header {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-medium);
+            margin-bottom: 8px;
+        }
+
+        .section-description {
+            font-size: 15px;
+            color: var(--text-light);
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-medium);
+            margin-bottom: 8px;
+        }
+
+        .label-hint {
+            font-weight: 400;
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: inherit;
+            font-size: 15px;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            background: var(--bg-white);
+            color: var(--text-medium);
+            transition: all 0.2s ease;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(168, 216, 242, 0.3);
+        }
+
+        /* Checkbox Group */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #fafafa;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item:hover {
+            border-color: var(--primary);
+            background: #f5f5f5;
+        }
+
+        .checkbox-item.selected {
+            border-color: var(--primary);
+            background: rgba(168, 216, 242, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--primary);
+            cursor: pointer;
+        }
+
+        .checkbox-label {
+            flex: 1;
+        }
+
+        .checkbox-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-medium);
+            margin-bottom: 2px;
+        }
+
+        .checkbox-cost {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Toggle Switch */
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #fafafa;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 52px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+            border-radius: 28px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background-color: var(--primary);
+        }
+
+        .toggle-switch input:checked + .toggle-slider:before {
+            transform: translateX(24px);
+        }
+
+        .toggle-label {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .toggle-label strong {
+            color: var(--text-medium);
+        }
+
+        /* Running Total */
+        .running-total {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--text-dark);
+            padding: 20px 24px;
+            margin: 24px -32px -32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .running-total-label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .running-total-amount {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 24px 32px;
+            background: #f9f8f6;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background: var(--bg-white);
+            color: var(--text-medium);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-light);
+            color: var(--text-dark);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--text-dark);
+            border: 2px solid var(--primary);
+            font-weight: 700;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Results Section */
+        .results-container {
+            display: none;
+        }
+
+        .results-container.visible {
+            display: block;
+        }
+
+        .results-summary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--text-dark);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .results-summary h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .total-amount {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .total-range {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .results-breakdown {
+            padding: 32px;
+        }
+
+        .breakdown-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .breakdown-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-medium);
+        }
+
+        .breakdown-category {
+            margin-bottom: 24px;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .category-total {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .category-items {
+            padding-left: 16px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            color: var(--text-light);
+        }
+
+        .item-cost {
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        /* Tips Section */
+        .tips-section {
+            background: linear-gradient(180deg, #ffffff 0%, rgba(168, 216, 242, 0.2) 100%);
+            border: 1px solid var(--primary);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .tips-title {
+            font-weight: 700;
+            color: var(--text-medium);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .tips-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            padding: 24px 32px 32px;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-medium);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--text-dark);
+            border-color: var(--primary);
+        }
+
+        /* Hidden Sections */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            border-radius: 12px;
+        }
+
+        .footer-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .footer-text {
+            font-size: 0.95em;
+            margin: 5px 0;
+        }
+
+        .footer-legal {
+            font-size: 0.85em;
+            margin: 8px 0;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 24px 16px 40px;
+            }
+
+            .section-content {
+                padding: 24px 20px;
+            }
+
+            .nav-buttons {
+                padding: 20px;
+            }
+
+            .running-total {
+                margin: 24px -20px -24px;
+                padding: 16px 20px;
+                flex-direction: column;
+                text-align: center;
+                gap: 4px;
+            }
+
+            .results-summary {
+                padding: 32px 24px;
+            }
+
+            .total-amount {
+                font-size: 42px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .action-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="data:image/png;base64,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" alt="IEF Logo" class="logo">
+            <p class="powered-by">Powered by Discover Your Success with Alayna Marie</p>
+            <h1>💰 IEF Nonprofit Startup Cost Estimator</h1>
+            <p class="subtitle">Plan your first year with confidence. Get a realistic budget estimate for launching your nonprofit organization.</p>
+            <p class="toolkit-badge">Part of the Discover Your Success Toolkit</p>
+        </header>
+
+        <!-- Benefits Banner -->
+        <div class="benefits-banner">
+            <h2>🎯 How This Tool Helps Your Organization</h2>
+            <p>✓ <strong>Plan with confidence</strong> by knowing your realistic startup costs</p>
+            <p>✓ <strong>Avoid surprises</strong> with state-specific filing fees and requirements</p>
+            <p>✓ <strong>Make informed decisions</strong> about optional vs required expenses</p>
+            <p>✓ <strong>Get cost-saving tips</strong> tailored to your selections</p>
+            <p>✓ <strong>Create a budget</strong> to share with potential funders and board members</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-header">
+                <span class="progress-label">Your Progress</span>
+                <span class="progress-percent" id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="calculator-card">
+            <div class="section-tabs">
+                <button class="section-tab active" data-section="1">1. Basics</button>
+                <button class="section-tab" data-section="2">2. Legal</button>
+                <button class="section-tab" data-section="3">3. Operations</button>
+                <button class="section-tab" data-section="4">4. Technology</button>
+                <button class="section-tab" data-section="5">5. Marketing</button>
+            </div>
+            <!-- Section 1: Basics -->
+            <div class="section active" id="section1">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Organization Basics</h2>
+                        <p class="section-description">Tell us about your planned nonprofit to customize your estimate.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="orgState">Which state will you incorporate in?</label>
+                        <select id="orgState">
+                            <option value="">Select your state...</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR" selected>Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                            <option value="DC">Washington D.C.</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="orgSize">Expected organization size in Year 1</label>
+                        <select id="orgSize">
+                            <option value="volunteer">All-volunteer (no paid staff)</option>
+                            <option value="small">Small (1-2 paid staff)</option>
+                            <option value="medium">Medium (3-5 paid staff)</option>
+                            <option value="large">Larger (6+ paid staff)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="orgType">Primary mission area</label>
+                        <select id="orgType">
+                            <option value="human-services">Human Services</option>
+                            <option value="education">Education</option>
+                            <option value="arts">Arts & Culture</option>
+                            <option value="environment">Environment</option>
+                            <option value="health">Health</option>
+                            <option value="animals">Animal Welfare</option>
+                            <option value="religious">Religious/Faith-Based</option>
+                            <option value="community">Community Development</option>
+                            <option value="advocacy">Advocacy/Policy</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="running-total">
+                        <span class="running-total-label">Estimated Total So Far</span>
+                        <span class="running-total-amount" id="runningTotal1">$0</span>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <div></div>
+                    <button class="btn btn-primary" onclick="nextSection(2)">
+                        Continue
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 2: Legal & Formation -->
+            <div class="section" id="section2">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Legal & Formation Costs</h2>
+                        <p class="section-description">Required and optional legal expenses to establish your nonprofit.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Required Formation Costs</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item selected">
+                                <input type="checkbox" checked disabled data-cost="50" data-category="legal" data-name="State incorporation filing fee">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">State Incorporation Fee</div>
+                                    <div class="checkbox-cost">~$50 (varies by state)</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item selected">
+                                <input type="checkbox" checked disabled data-cost="600" data-category="legal" data-name="IRS Form 1023/1023-EZ filing fee">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">IRS 501(c)(3) Application</div>
+                                    <div class="checkbox-cost">$275-$600</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Optional Legal Services</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="1500" data-category="legal" data-name="Attorney for 501(c)(3) application">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Attorney for 501(c)(3)</div>
+                                    <div class="checkbox-cost">$1,000-$3,000</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="500" data-category="legal" data-name="Registered agent service (annual)">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Registered Agent Service</div>
+                                    <div class="checkbox-cost">$100-$300/year</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="750" data-category="legal" data-name="Bylaws drafting (attorney)">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Attorney for Bylaws</div>
+                                    <div class="checkbox-cost">$500-$1,000</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="200" data-category="legal" data-name="Trademark search/filing">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Trademark Search</div>
+                                    <div class="checkbox-cost">$100-$350</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="running-total">
+                        <span class="running-total-label">Estimated Total So Far</span>
+                        <span class="running-total-amount" id="runningTotal2">$650</span>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="prevSection(1)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Back
+                    </button>
+                    <button class="btn btn-primary" onclick="nextSection(3)">
+                        Continue
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 3: Operations -->
+            <div class="section" id="section3">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Operations & Insurance</h2>
+                        <p class="section-description">Day-to-day operational costs and required coverage.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Will you have a physical office space?</label>
+                        <div class="toggle-group">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="hasOffice" onchange="toggleOfficeOptions()">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="toggle-label"><strong>Yes</strong>, we'll rent office space</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="officeOptions" style="display: none;">
+                        <label for="monthlyRent">Estimated Monthly Rent</label>
+                        <input type="number" id="monthlyRent" placeholder="e.g., 1000" data-category="operations" data-name="Office rent (annual)" onchange="calculateTotal()">
+                        <span class="label-hint">Enter monthly amount - we'll calculate annual cost</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Insurance Coverage</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="800" data-category="insurance" data-name="General liability insurance">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">General Liability Insurance</div>
+                                    <div class="checkbox-cost">$500-$1,200/year</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="1200" data-category="insurance" data-name="Directors & Officers (D&O) insurance">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Directors & Officers (D&O)</div>
+                                    <div class="checkbox-cost">$800-$2,000/year</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="600" data-category="insurance" data-name="Workers' compensation insurance">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Workers' Compensation</div>
+                                    <div class="checkbox-cost">Varies by payroll</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="500" data-category="insurance" data-name="Property/contents insurance">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Property Insurance</div>
+                                    <div class="checkbox-cost">$300-$700/year</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Office Supplies & Equipment</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="500" data-category="operations" data-name="Basic office supplies">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Basic Office Supplies</div>
+                                    <div class="checkbox-cost">$300-$700</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="2000" data-category="operations" data-name="Office furniture">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Office Furniture</div>
+                                    <div class="checkbox-cost">$1,000-$3,000</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="running-total">
+                        <span class="running-total-label">Estimated Total So Far</span>
+                        <span class="running-total-amount" id="runningTotal3">$650</span>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="prevSection(2)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Back
+                    </button>
+                    <button class="btn btn-primary" onclick="nextSection(4)">
+                        Continue
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 4: Technology -->
+            <div class="section" id="section4">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Technology & Software</h2>
+                        <p class="section-description">Digital tools to run your organization efficiently.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Website & Domain</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item selected" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" checked data-cost="20" data-category="technology" data-name="Domain registration">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Domain Name</div>
+                                    <div class="checkbox-cost">$10-$30/year</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="200" data-category="technology" data-name="Website hosting">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Website Hosting</div>
+                                    <div class="checkbox-cost">$100-$300/year</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="2500" data-category="technology" data-name="Professional website design">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Professional Website Design</div>
+                                    <div class="checkbox-cost">$1,500-$5,000</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="0" data-category="technology" data-name="DIY website (Wix, Squarespace)">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">DIY Website Builder</div>
+                                    <div class="checkbox-cost">Free-$200/year</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Software & Subscriptions</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="0" data-category="technology" data-name="Google Workspace for Nonprofits">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Google Workspace (Nonprofit)</div>
+                                    <div class="checkbox-cost">Free for nonprofits</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="600" data-category="technology" data-name="Donor management software">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Donor Management (CRM)</div>
+                                    <div class="checkbox-cost">$0-$1,200/year</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="300" data-category="technology" data-name="Accounting software (QuickBooks)">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Accounting Software</div>
+                                    <div class="checkbox-cost">$200-$500/year</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="150" data-category="technology" data-name="Email marketing platform">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Email Marketing</div>
+                                    <div class="checkbox-cost">Free-$300/year</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Hardware</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="1200" data-category="technology" data-name="Computer/laptop">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Computer/Laptop</div>
+                                    <div class="checkbox-cost">$800-$1,500</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="300" data-category="technology" data-name="Printer/scanner">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Printer/Scanner</div>
+                                    <div class="checkbox-cost">$150-$400</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="running-total">
+                        <span class="running-total-label">Estimated Total So Far</span>
+                        <span class="running-total-amount" id="runningTotal4">$670</span>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="prevSection(3)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Back
+                    </button>
+                    <button class="btn btn-primary" onclick="nextSection(5)">
+                        Continue
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 5: Marketing -->
+            <div class="section" id="section5">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Marketing & Outreach</h2>
+                        <p class="section-description">Getting the word out about your mission.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Branding & Design</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="800" data-category="marketing" data-name="Logo design">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Professional Logo Design</div>
+                                    <div class="checkbox-cost">$300-$1,500</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="500" data-category="marketing" data-name="Brand style guide">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Brand Style Guide</div>
+                                    <div class="checkbox-cost">$300-$800</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="400" data-category="marketing" data-name="Business cards & stationery">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Business Cards & Stationery</div>
+                                    <div class="checkbox-cost">$200-$600</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Marketing Materials</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="600" data-category="marketing" data-name="Brochures/flyers printing">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Brochures/Flyers</div>
+                                    <div class="checkbox-cost">$300-$1,000</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="300" data-category="marketing" data-name="Promotional items/swag">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Promotional Items</div>
+                                    <div class="checkbox-cost">$200-$500</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="200" data-category="marketing" data-name="Event banners/signage">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Banners & Signage</div>
+                                    <div class="checkbox-cost">$100-$400</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Online Presence</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="1200" data-category="marketing" data-name="Social media advertising budget">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Social Media Advertising</div>
+                                    <div class="checkbox-cost">$500-$2,000/year</div>
+                                </div>
+                            </label>
+                            <label class="checkbox-item" onclick="toggleCheckbox(this)">
+                                <input type="checkbox" data-cost="0" data-category="marketing" data-name="Google Ad Grants application">
+                                <div class="checkbox-label">
+                                    <div class="checkbox-title">Google Ad Grants</div>
+                                    <div class="checkbox-cost">Free ($10k/mo in ads!)</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="running-total">
+                        <span class="running-total-label">Estimated Total So Far</span>
+                        <span class="running-total-amount" id="runningTotal5">$670</span>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button class="btn btn-secondary" onclick="prevSection(4)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        Back
+                    </button>
+                    <button class="btn btn-primary" onclick="showResults()">
+                        See My Estimate
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="results-container" id="results">
+                <div class="results-summary">
+                    <h2>Your Estimated First-Year Costs</h2>
+                    <div class="total-amount" id="finalTotal">$0</div>
+                    <div class="total-range" id="totalRange">Range: $0 - $0</div>
+                </div>
+
+                <div class="results-breakdown">
+                    <div class="breakdown-header">
+                        <h3 class="breakdown-title">Cost Breakdown</h3>
+                    </div>
+
+                    <div id="breakdownContent">
+                        <!-- Populated by JavaScript -->
+                    </div>
+
+                    <div class="tips-section">
+                        <h4 class="tips-title">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                            Money-Saving Tips
+                        </h4>
+                        <ul class="tips-list" id="tipsList">
+                            <!-- Populated by JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-outline" onclick="window.print()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+                        Print Estimate
+                    </button>
+                    <button class="btn btn-outline" onclick="startOver()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                        Start Over
+                    </button>
+                    <button class="btn btn-primary" onclick="window.location.href='#'">
+                        Get More Free Tools
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State filing fees by state (approximate)
+        const stateFilingFees = {
+            'AL': 25, 'AK': 50, 'AZ': 40, 'AR': 50, 'CA': 30, 'CO': 50, 'CT': 50, 'DE': 89,
+            'FL': 35, 'GA': 100, 'HI': 25, 'ID': 30, 'IL': 50, 'IN': 30, 'IA': 20, 'KS': 20,
+            'KY': 8, 'LA': 75, 'ME': 40, 'MD': 170, 'MA': 35, 'MI': 20, 'MN': 70, 'MS': 50,
+            'MO': 25, 'MT': 20, 'NE': 65, 'NV': 50, 'NH': 25, 'NJ': 75, 'NM': 25, 'NY': 75,
+            'NC': 60, 'ND': 40, 'OH': 99, 'OK': 25, 'OR': 50, 'PA': 125, 'RI': 35, 'SC': 25,
+            'SD': 30, 'TN': 100, 'TX': 25, 'UT': 30, 'VT': 125, 'VA': 75, 'WA': 30, 'WV': 25,
+            'WI': 35, 'WY': 25, 'DC': 80
+        };
+
+        let currentSection = 1;
+        const totalSections = 5;
+
+        // Base required costs
+        const baseCosts = {
+            irsFilingFee: 600 // Using the higher 1023 fee as default
+        };
+
+        function toggleCheckbox(element) {
+            const checkbox = element.querySelector('input[type="checkbox"]');
+            if (!checkbox.disabled) {
+                checkbox.checked = !checkbox.checked;
+                element.classList.toggle('selected', checkbox.checked);
+                calculateTotal();
+            }
+        }
+
+        function toggleOfficeOptions() {
+            const hasOffice = document.getElementById('hasOffice').checked;
+            const officeOptions = document.getElementById('officeOptions');
+            officeOptions.style.display = hasOffice ? 'block' : 'none';
+            if (!hasOffice) {
+                document.getElementById('monthlyRent').value = '';
+            }
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            let total = 0;
+            const breakdown = {
+                legal: { items: [], total: 0 },
+                insurance: { items: [], total: 0 },
+                operations: { items: [], total: 0 },
+                technology: { items: [], total: 0 },
+                marketing: { items: [], total: 0 }
+            };
+
+            // Get state filing fee
+            const state = document.getElementById('orgState').value;
+            const stateFilingFee = stateFilingFees[state] || 50;
+            breakdown.legal.items.push({ name: 'State incorporation filing fee', cost: stateFilingFee });
+            breakdown.legal.total += stateFilingFee;
+            total += stateFilingFee;
+
+            // IRS filing fee
+            breakdown.legal.items.push({ name: 'IRS Form 1023/1023-EZ filing fee', cost: baseCosts.irsFilingFee });
+            breakdown.legal.total += baseCosts.irsFilingFee;
+            total += baseCosts.irsFilingFee;
+
+            // Get all checked optional items
+            document.querySelectorAll('input[type="checkbox"]:checked:not(:disabled)').forEach(checkbox => {
+                const cost = parseFloat(checkbox.dataset.cost) || 0;
+                const category = checkbox.dataset.category;
+                const name = checkbox.dataset.name;
+                
+                if (category && breakdown[category]) {
+                    breakdown[category].items.push({ name, cost });
+                    breakdown[category].total += cost;
+                    total += cost;
+                }
+            });
+
+            // Add rent if applicable
+            const monthlyRent = parseFloat(document.getElementById('monthlyRent').value) || 0;
+            if (monthlyRent > 0) {
+                const annualRent = monthlyRent * 12;
+                breakdown.operations.items.push({ name: 'Office rent (annual)', cost: annualRent });
+                breakdown.operations.total += annualRent;
+                total += annualRent;
+            }
+
+            // Update running totals
+            for (let i = 1; i <= totalSections; i++) {
+                const runningEl = document.getElementById(`runningTotal${i}`);
+                if (runningEl) {
+                    runningEl.textContent = formatCurrency(total);
+                }
+            }
+
+            // Store breakdown for results
+            window.costBreakdown = breakdown;
+            window.totalCost = total;
+
+            return total;
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+
+        function updateProgress() {
+            const progress = ((currentSection - 1) / totalSections) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('progressPercent').textContent = `${Math.round(progress)}%`;
+
+            // Update tabs
+            document.querySelectorAll('.section-tab').forEach((tab, index) => {
+                tab.classList.remove('active', 'completed');
+                if (index + 1 === currentSection) {
+                    tab.classList.add('active');
+                } else if (index + 1 < currentSection) {
+                    tab.classList.add('completed');
+                }
+            });
+        }
+
+        function showSection(num) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`section${num}`).classList.add('active');
+            document.getElementById('results').classList.remove('visible');
+            currentSection = num;
+            updateProgress();
+            calculateTotal();
+        }
+
+        function nextSection(num) {
+            showSection(num);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prevSection(num) {
+            showSection(num);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showResults() {
+            calculateTotal();
+            
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('results').classList.add('visible');
+
+            // Update final total
+            const total = window.totalCost;
+            document.getElementById('finalTotal').textContent = formatCurrency(total);
+            
+            // Calculate range (±20%)
+            const lowRange = Math.round(total * 0.8);
+            const highRange = Math.round(total * 1.3);
+            document.getElementById('totalRange').textContent = `Range: ${formatCurrency(lowRange)} - ${formatCurrency(highRange)}`;
+
+            // Build breakdown HTML
+            const breakdown = window.costBreakdown;
+            const categoryNames = {
+                legal: 'Legal & Formation',
+                insurance: 'Insurance',
+                operations: 'Operations',
+                technology: 'Technology',
+                marketing: 'Marketing'
+            };
+
+            let breakdownHTML = '';
+            for (const [key, category] of Object.entries(breakdown)) {
+                if (category.items.length > 0) {
+                    breakdownHTML += `
+                        <div class="breakdown-category">
+                            <div class="category-header">
+                                <span class="category-name">${categoryNames[key]}</span>
+                                <span class="category-total">${formatCurrency(category.total)}</span>
+                            </div>
+                            <div class="category-items">
+                                ${category.items.map(item => `
+                                    <div class="breakdown-item">
+                                        <span class="item-name">${item.name}</span>
+                                        <span class="item-cost">${formatCurrency(item.cost)}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            document.getElementById('breakdownContent').innerHTML = breakdownHTML;
+
+            // Generate tips based on selections
+            const tips = generateTips();
+            document.getElementById('tipsList').innerHTML = tips.map(tip => `<li>${tip}</li>`).join('');
+
+            // Update progress to 100%
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('progressPercent').textContent = '100%';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function generateTips() {
+            const tips = [];
+            const breakdown = window.costBreakdown;
+
+            // Always include these
+            tips.push('Apply for Google for Nonprofits to get free Google Workspace, $10,000/month in Google Ads, and YouTube Premium features.');
+            tips.push('Check if your state offers fee waivers for nonprofit incorporation.');
+
+            // Conditional tips
+            if (breakdown.legal.total > 1500) {
+                tips.push('Consider using a pro bono legal service like your local bar association\'s nonprofit program to reduce legal costs.');
+            }
+
+            if (breakdown.technology.total > 2000) {
+                tips.push('TechSoup offers deeply discounted software for nonprofits - you could save 50-90% on technology costs.');
+            }
+
+            if (breakdown.insurance.total === 0) {
+                tips.push('General liability insurance is highly recommended - many venues and funders require it. Budget $500-$1,000.');
+            }
+
+            if (breakdown.marketing.total < 500) {
+                tips.push('Low-cost marketing: leverage social media, partner with local businesses, and apply for Google Ad Grants for $10k/month in free advertising.');
+            }
+
+            tips.push('Many foundations offer startup grants specifically for new nonprofits - research community foundations in your area.');
+
+            return tips.slice(0, 5); // Return top 5 tips
+        }
+
+        function startOver() {
+            // Reset all checkboxes
+            document.querySelectorAll('input[type="checkbox"]:not(:disabled)').forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.closest('.checkbox-item')?.classList.remove('selected');
+            });
+
+            // Reset select to default for domain
+            document.querySelectorAll('input[type="checkbox"][data-name="Domain registration"]').forEach(checkbox => {
+                checkbox.checked = true;
+                checkbox.closest('.checkbox-item')?.classList.add('selected');
+            });
+
+            // Reset other inputs
+            document.getElementById('monthlyRent').value = '';
+            document.getElementById('hasOffice').checked = false;
+            toggleOfficeOptions();
+
+            // Go back to section 1
+            showSection(1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Tab click handlers
+        document.querySelectorAll('.section-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const sectionNum = parseInt(tab.dataset.section);
+                showSection(sectionNum);
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateProgress();
+            calculateTotal();
+        });
+    </script>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-title">🌟 Discover Your Success Toolkit</div>
+            <div class="footer-text">Created by Alayna Marie Weimer | Bend, Oregon</div>
+            <div class="footer-text">Operated through IEF Fractional Services under license</div>
+            <div class="footer-legal">© 2025 Alayna Marie Weimer. All Rights Reserved.</div>
+            <div class="footer-legal">🔒 PROPRIETARY & CONFIDENTIAL - Available by paid license only</div>
+            <div class="footer-legal">⚠️ Unauthorized use, copying, or distribution prohibited</div>
+            <div class="footer-legal">This tool is the exclusive property of Alayna Marie Weimer</div>
+            <div class="footer-text" style="margin-top: 15px;">For Licensing Inquiries: alayna@ignitepositivechanges.com</div>
+        </div>
+    </div>
+</body>
+</html>
